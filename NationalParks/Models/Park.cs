@@ -12,7 +12,6 @@ namespace NationalParks.Models
     public string State { get; set; }
     public string Country { get; set; }
     public int Cost { get; set; }
-    public string Amentities { get; set; }
     public ICollection<Service> Services { get; set; }
   }
 }
