@@ -8,6 +8,7 @@ namespace NationalParks.Models
     public string Type { get; set; }
     public string Description { get; set; }
     public int Cost { get; set; }
+    public int ParkId { get; set; }
     [JsonIgnore]
     public virtual Park Park { get; set; }
   }
