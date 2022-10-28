@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NationalParks.Models;
 
+
 namespace NationalParks.Controllers
 {
   [Route("api/[controller]")]
@@ -19,13 +20,21 @@ namespace NationalParks.Controllers
     }
 
     // GET api/services/
+
+    ///<summary>
+    /// Get a specific service.
+    /// </summary>
     [HttpGet]
     public async Task<List<Service>> Get()
     {
       IQueryable<Service> query = _db.Services.AsQueryable();
       return await query.ToListAsync();
     }
+
     // GET api/services/5
+    ///<summary>
+    /// Get a specific service by id.
+    /// </summary>
     [HttpGet("{id}")]
 
     public async Task<ActionResult<Service>> GetService(int id)
@@ -41,6 +50,26 @@ namespace NationalParks.Controllers
     }
 
     // POST api/services
+
+    ///<summary>
+    /// Add a new service.
+    /// </summary>
+    /// <param name="service"></param>
+    /// <returns>A newly created Service</returns>
+    /// <remarks>
+    /// Sample request:
+    ///
+    ///     POST /Services
+    ///     {
+    ///        "name": "ServiceName",
+    ///        "type": "ServiceType",
+    ///        "cost": "int",
+    ///        "description": "description of place"
+    ///     }
+    ///
+    /// </remarks>
+    /// <response code="201">Returns the newly created service</response>
+    /// <response code="400">If the service is null</response>
     [HttpPost]
     public async Task<ActionResult<Service>> Post(Service service)
     {
@@ -52,6 +81,9 @@ namespace NationalParks.Controllers
     }
 
     // PUT: api/services/5
+    ///<summary>
+    /// Update a specific service.
+    /// </summary>
     [HttpPut("{id}")]
     public async Task<IActionResult> Put(int id, Service service)
     {
@@ -82,6 +114,10 @@ namespace NationalParks.Controllers
     }
 
     // DELETE: api/services/5
+
+    ///<summary>
+    /// Delete a specific service.
+    /// </summary>
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteService(int id)
     {

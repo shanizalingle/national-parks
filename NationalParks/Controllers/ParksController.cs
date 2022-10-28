@@ -20,6 +20,10 @@ namespace NationalParks.Controllers
         }
 
         // GET api/parks/
+
+        ///<summary>
+        /// Get a specific National Park.
+        /// </summary>
         [HttpGet]
         public async Task<List<Park>> Get(string name, string state, string country, int cost)
         {
@@ -49,6 +53,10 @@ namespace NationalParks.Controllers
         }
     
         // GET api/parks/5
+
+        ///<summary>
+        /// Get a specific National Park by id.
+        /// </summary>
         [HttpGet("{id}")]
         public async Task<ActionResult<IEnumerable<Park>>> GetPark(int id)
         {
@@ -62,6 +70,26 @@ namespace NationalParks.Controllers
         }
 
         // POST api/parks
+
+        ///<summary>
+        /// Add a new National Park.
+        /// </summary>
+        /// <param name="park"></param>
+        /// <returns>A newly created National Park</returns>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///     POST /Parks
+        ///     {
+        ///        "name": "Park name",
+        ///        "state": "StateName",
+        ///        "country": "CountryName",
+        ///        "cost": "int",
+        ///     }
+        ///
+        /// </remarks>
+        /// <response code="201">Returns the newly created National Park</response>
+        /// <response code="400">If the National Park is null</response>
         [HttpPost]
         public async Task<ActionResult<Park>> Post(Park park)
         {
@@ -71,6 +99,10 @@ namespace NationalParks.Controllers
         }
 
         // PUT: api/Parks/5
+
+        ///<summary>
+        /// Update a specific National Park.
+        /// </summary>
         [HttpPut("{id}")]
         public async Task<IActionResult> Put(int id, Park park)
         {
@@ -99,7 +131,12 @@ namespace NationalParks.Controllers
 
         return NoContent();
         }
+
         // DELETE: api/Parks/5
+
+        ///<summary>
+        /// Delete a specific National Park.
+        /// </summary>
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeletePark(int id)
         {
