@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using System.Text.Json.Serialization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using NationalParks.Models;
 
@@ -14,11 +10,11 @@ namespace NationalParks.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class NationalParksController : ControllerBase
+    public class ParksController : ControllerBase
     {
         private readonly NationalParksContext _db;
 
-        public NationalParksController(NationalParksContext db)
+        public ParksController(NationalParksContext db)
         {
             _db = db;
         }
@@ -36,7 +32,7 @@ namespace NationalParks.Controllers
 
         if (state != null)
         {
-            query = query.Where(entry => entry.Country == state).Include(entry => entry.Services);
+            query = query.Where(entry => entry.State == state).Include(entry => entry.Services);
         }
 
         if (country != null)

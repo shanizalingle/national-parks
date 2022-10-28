@@ -12,8 +12,7 @@ namespace NationalParks.Models
         {
           builder.Entity<Service>()
             .HasData(
-              new Service { ServiceId = 1, Name = "Glacier National Park Lodges", Type = "Lodging", Description = "Our guest experience is characterized by warm, personalized service and convenient in-room amenities to make the most of your stay in Glacier National Park.", Cost = 100, ParkId = 1},
-              new Service { ServiceId = 2}
+              new Service { ServiceId = 1, Name = "Glacier National Park Lodges", Type = "Lodging", Description = "Our guest experience is characterized by warm, personalized service and convenient in-room amenities to make the most of your stay in Glacier National Park.", Cost = 100, ParkId = 1}
             );
           builder.Entity<Park>()
             .HasData(

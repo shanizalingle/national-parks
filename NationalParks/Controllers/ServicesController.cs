@@ -1,9 +1,7 @@
-using System;
 using System.Collections.Generic;
 using System.Linq; 
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using NationalParks.Models;
 
@@ -29,7 +27,7 @@ namespace NationalParks.Controllers
     }
     // GET api/services/5
     [HttpGet("{id}")]
-    
+
     public async Task<ActionResult<Service>> GetService(int id)
     {
         var service = await _db.Services.FindAsync(id);
