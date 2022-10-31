@@ -45,7 +45,7 @@ namespace NationalParks
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "NationalParks v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Shaniza's National Parks"));
             }
 
             // app.UseHttpsRedirection();
