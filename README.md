@@ -15,7 +15,7 @@
 
 ## Description
 
-_The National Parks API allows creating, deleting, and editing of National Parks. This includes a one to many relationship between parks and services. The application can be viewed in Postman or swagger at https://localhost:5000/swagger_
+_The National Parks API allows creating, deleting, and editing of National Parks. This includes a one to many relationship between parks and services. The application can be viewed in Postman or swagger at https://localhost:5000_
 
 ## Setup/Installation Requirements
 
@@ -45,22 +45,20 @@ _The National Parks API allows creating, deleting, and editing of National Parks
 
 ## Swagger
 
-_View swagger documentation through ```https://localhost:5000/swagger```_
-
-_Below are CRUD options for the API. These work with the API in live time to create, edit, and view elements of the database_
+Below are CRUD options for the API. These work with the API in live time to create, edit, and view elements of the database
 
 <details>
 <summary>CRUD OPTIONS</summary>
 
-* _GET /api/Parks: Allows user to look a national park by it's name, state, country, or cost_
+* _**GET** /api/Parks: Allows user to look a national park by it's name, state, country, or cost_
 
-* _POST /api/Parks: Allows user to add a new national park to the database_
+* _**POST** /api/Parks: Allows user to add a new national park to the database_
 
-* _GET /api/Parks: Allows user to look up a national park by it's parkID_
+* _**GET** /api/Parks: Allows user to look up a national park by it's parkID_
 
-* _PUT /api/Parks: Allows user to edit an existing national park in the database with ID_
+* _**PUT** /api/Parks: Allows user to edit an existing national park in the database with ID_
 
-* _DELETE /api/Parks: Allows user to delete an existing national park in the database with ID_
+* _**DELETE** /api/Parks: Allows user to delete an existing national park in the database with ID_
 </details>
 
 ### Swagger Interface
@@ -87,4 +85,4 @@ _Below are CRUD options for the API. These work with the API in live time to cre
 
 _[MIT](https://en.wikipedia.org/wiki/MIT_License)_
 
-Copyright (c) _2022_ _Shaniza Lingle_
+Copyright (c) _2022_ _**Shaniza Lingle**_
