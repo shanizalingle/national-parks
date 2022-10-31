@@ -28,14 +28,29 @@ namespace NationalParks
             services.AddDbContext<NationalParksContext>(opt =>
                 opt.UseMySql(Configuration["ConnectionStrings:DefaultConnection"], ServerVersion.AutoDetect(Configuration["ConnectionStrings:DefaultConnection"])));
             services.AddControllers();
-            services.AddSwaggerGen(c =>
+            services.AddSwaggerGen(options =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "NationalParks", Version = "v1" });
-            });
+            options.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Version = "v1",
+                    Title = "National Parks API",
+                    Description = "An API containing locations, costs, activities and more on national parks",
+                    Contact = new OpenApiContact
+                    {
+                        Name = "Shaniza Lingle",
+                        Email = "shanizalingle@gmail.com",
+                        Url = new Uri("https://github.com/shanizalingle/national-parks.git")
+                    },
+                    License = new OpenApiLicense
+                    {
+                        Name = "License",
+                        Url = new Uri("https://opensource.org/licenses/MIT")
+                    }
 
+                });
             var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-            var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFilename);
-            // c.IncludeXmlComments(xmlPath);
+            options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,7 +60,12 @@ namespace NationalParks
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Shaniza's National Parks"));
+                app.UseSwaggerUI(options =>
+                {
+                    options.SwaggerEndpoint("/swagger/v1/swagger.json", "Shanizas API V1");
+                    options.RoutePrefix = string.Empty;
+                    // options.InjectStylesheet("/Assets/css/custom-swagger-ui.css"); 
+                });
             }
 
             // app.UseHttpsRedirection();
@@ -53,6 +73,8 @@ namespace NationalParks
             app.UseRouting();
 
             app.UseAuthorization();
+
+            // app.UseStaticFiles();
 
             app.UseEndpoints(endpoints =>
             {
